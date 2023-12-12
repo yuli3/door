@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import "https://unpkg.com/open-props" layer(design.system);
+        @import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+        @import "https://unpkg.com/open-props/theme.light.switch.min.css" layer(demo.theme);
+        @import "https://unpkg.com/open-props/theme.dark.switch.min.css" layer(demo.theme);
+
+        @layer demo {
+            .taglist {
+                padding: 0;
+                border: none;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: start;
+                gap: var(--size-2);
+                max-inline-size: var(--size-content-2);
+
+                >legend {
+                    height: 0;
+                    width: 0;
+                    overflow: clip;
+                }
+
+                >div {
+                    display: grid;
+                    align-items: center;
+                    grid-auto-flow: column;
+                    grid-template-columns: auto 1fr;
+
+                    >* {
+                        grid-area: 1/1;
+                    }
+
+                    >label {
+                        padding-inline: var(--size-3);
+                        padding-block: var(--size-1);
+                        background: white;
+                        border-radius: var(--radius-2);
+                        cursor: pointer;
+
+                        .dark & {
+                            background: var(--surface-2);
+                        }
+                    }
+
+                    >input {
+                        appearance: none;
+                        background: none;
+                        border: none;
+                        inline-size: 100%;
+                        block-size: 100%;
+
+                        &:checked~label {
+                            background-color: var(--link);
+                            color: var(--surface-1);
+                        }
+
+                        &:not(:checked):is(:focus-within, :hover)~label {
+                            color: var(--link);
+                        }
+                    }
+                }
+            }
+        }
+
+        @layer demo.support {
+            body {
+                display: grid;
+
+                @media (width > 720px) {
+                    grid: 1fr / 1fr 1fr;
+                }
+
+                &>* {
+                    display: grid;
+                    place-content: center;
+                }
+            }
+
+            .dark,
+            .light {
+                color: var(--text-1);
+                background: var(--surface-1);
+                gap: var(--size-10);
+                padding-inline: var(--size-3);
+                padding-block: var(--size-10);
+
+                >div {
+                    display: grid;
+                    gap: 1ch;
+
+                    >p {
+                        font-weight: var(--font-weight-6);
+                    }
+                }
+            }
+
+            .light {
+                background: var(--surface-3);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="light">
+        <div>
+            <p>Flavor Profile: Checkboxes</p>
+            <fieldset class="taglist">
+                <legend>A list of items to select</legend>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="floral" id="light-taglist-checkbox-floral">
+                    <label for="light-taglist-checkbox-floral">Floral</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="peachy" id="light-taglist-checkbox-peachy">
+                    <label for="light-taglist-checkbox-peachy">Peachy</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="light" id="light-taglist-checkbox-light">
+                    <label for="light-taglist-checkbox-light">Light</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="dry" id="light-taglist-checkbox-dry">
+                    <label for="light-taglist-checkbox-dry">Dry</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="citrus" id="light-taglist-checkbox-citrus">
+                    <label for="light-taglist-checkbox-citrus">Citrus</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="dark" id="light-taglist-checkbox-dark">
+                    <label for="light-taglist-checkbox-dark">Dark</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="crisp" id="light-taglist-checkbox-crisp">
+                    <label for="light-taglist-checkbox-crisp">Crisp</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="light-taglist" value="piney" id="light-taglist-checkbox-piney">
+                    <label for="light-taglist-checkbox-piney">Piney</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div>
+            <p>Flavor Profile: Radios</p>
+            <fieldset class="taglist">
+                <legend>A list of items to select</legend>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="floral" id="light-taglist-radio-floral">
+                    <label for="light-taglist-radio-floral">Floral</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="peachy" id="light-taglist-radio-peachy">
+                    <label for="light-taglist-radio-peachy">Peachy</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="light" id="light-taglist-radio-light">
+                    <label for="light-taglist-radio-light">Light</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="dry" id="light-taglist-radio-dry">
+                    <label for="light-taglist-radio-dry">Dry</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="citrus" id="light-taglist-radio-citrus">
+                    <label for="light-taglist-radio-citrus">Citrus</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="dark" id="light-taglist-radio-dark">
+                    <label for="light-taglist-radio-dark">Dark</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="crisp" id="light-taglist-radio-crisp">
+                    <label for="light-taglist-radio-crisp">Crisp</label>
+                </div>
+                <div>
+                    <input type="radio" name="light-taglist-radio" value="piney" id="light-taglist-radio-piney">
+                    <label for="light-taglist-radio-piney">Piney</label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="dark">
+        <div>
+            <p>Flavor Profile: Checkboxes</p>
+            <fieldset class="taglist">
+                <legend>A list of items to select</legend>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="floral" id="dark-taglist-checkbox-floral">
+                    <label for="dark-taglist-checkbox-floral">Floral</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="peachy" id="dark-taglist-checkbox-peachy">
+                    <label for="dark-taglist-checkbox-peachy">Peachy</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="light" id="dark-taglist-checkbox-light">
+                    <label for="dark-taglist-checkbox-light">Light</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="dry" id="dark-taglist-checkbox-dry">
+                    <label for="dark-taglist-checkbox-dry">Dry</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="citrus" id="dark-taglist-checkbox-citrus">
+                    <label for="dark-taglist-checkbox-citrus">Citrus</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="dark" id="dark-taglist-checkbox-dark">
+                    <label for="dark-taglist-checkbox-dark">Dark</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="crisp" id="dark-taglist-checkbox-crisp">
+                    <label for="dark-taglist-checkbox-crisp">Crisp</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dark-taglist" value="piney" id="dark-taglist-checkbox-piney">
+                    <label for="dark-taglist-checkbox-piney">Piney</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div>
+            <p>Flavor Profile: Radios</p>
+            <fieldset class="taglist">
+                <legend>A list of items to select</legend>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="floral" id="dark-taglist-radio-floral">
+                    <label for="dark-taglist-radio-floral">Floral</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="peachy" id="dark-taglist-radio-peachy">
+                    <label for="dark-taglist-radio-peachy">Peachy</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="light" id="dark-taglist-radio-light">
+                    <label for="dark-taglist-radio-light">Light</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="dry" id="dark-taglist-radio-dry">
+                    <label for="dark-taglist-radio-dry">Dry</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="citrus" id="dark-taglist-radio-citrus">
+                    <label for="dark-taglist-radio-citrus">Citrus</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="dark" id="dark-taglist-radio-dark">
+                    <label for="dark-taglist-radio-dark">Dark</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="crisp" id="dark-taglist-radio-crisp">
+                    <label for="dark-taglist-radio-crisp">Crisp</label>
+                </div>
+                <div>
+                    <input type="radio" name="dark-taglist-radio" value="piney" id="dark-taglist-radio-piney">
+                    <label for="dark-taglist-radio-piney">Piney</label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</body>
+
+</html>

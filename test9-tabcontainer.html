@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>tab-container demo</title>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <style>
+    [role="tablist"] {
+  margin: 0 0 -.1em;
+  overflow: visible;
+}
+
+[role="tab"] {
+  position: relative;
+  margin: 0;
+  padding: .3em .5em .4em;
+  border: 1px solid hsl(219, 1%, 72%);
+  border-radius: .2em .2em 0 0;
+  box-shadow: 0 0 .2em hsl(219, 1%, 72%);
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  background: hsl(220, 20%, 94%);
+}
+
+[role="tab"]:hover::before,
+[role="tab"]:focus::before,
+[role="tab"][aria-selected="true"]::before {
+  position: absolute;
+  bottom: 100%;
+  right: -1px;
+  left: -1px;
+  border-radius: 0.2em 0.2em 0 0;
+  border-top: 3px solid hsl(20, 96%, 48%);
+  content: '';
+}
+
+[role="tab"][aria-selected="true"] {
+  border-radius: 0;
+  background: hsl(220, 43%, 99%);
+  outline: 0;
+}
+
+[role="tab"][aria-selected="true"]:not(:focus):not(:hover)::before {
+  border-top: 5px solid hsl(218, 96%, 48%);
+}
+
+[role="tab"][aria-selected="true"]::after {
+  position: absolute;
+  z-index: 3;
+  bottom: -1px;
+  right: 0;
+  left: 0;
+  height: .3em;
+  background: hsl(220, 43%, 99%);
+  box-shadow: none;
+  content: '';
+}
+
+[role="tab"]:hover,
+[role="tab"]:focus,
+[role="tab"]:active {
+  outline: 0;
+  border-radius: 0;
+  color: inherit;
+}
+
+[role="tab"]:hover::before,
+[role="tab"]:focus::before {
+  border-color: hsl(20, 96%, 48%);
+}
+
+[role="tabpanel"] {
+  position: relative;
+  z-index: 2;
+  padding: .5em .5em .7em;
+  border: 1px solid hsl(219, 1%, 72%);
+  border-radius: 0 .2em .2em .2em;
+  box-shadow: 0 0 .2em hsl(219, 1%, 72%);
+  background: hsl(220, 43%, 99%);
+
+}
+
+[role="tabpanel"]:focus {
+  border-color: hsl(20, 96%, 48%);
+  box-shadow: 0 0 .2em hsl(20, 96%, 48%);
+  outline: 0;
+}
+
+[role="tabpanel"]:focus::after {
+  position: absolute;
+  bottom: 0;
+  right: -1px;
+  left: -1px;
+  border-bottom: 3px solid hsl(20, 96%, 48%);
+  border-radius: 0 0 0.2em 0.2em;
+  content: '';
+}
+  </style>
+</head>
+<body>
+  <tab-container>
+    <div role="tablist">
+      <button type="button" id="tab-one" role="tab" tabindex="0" aria-selected="true">Tab one</button>
+      <button type="button" id="tab-two" role="tab" tabindex="-1">Tab two</button>
+      <button type="button" id="tab-three" role="tab" tabindex="-1">Tab three</button>
+    </div>
+    <div role="tabpanel" aria-labelledby="tab-one">
+      Panel 1
+    </div>
+    <div role="tabpanel" aria-labelledby="tab-two" hidden>
+      Panel 2
+    </div>
+    <div role="tabpanel" aria-labelledby="tab-three" hidden>
+      Panel 3
+    </div>
+  </tab-container>
+
+  <!-- <script src="../dist/index.js" type="module"></script> -->
+  <script src="./tab-container.js" type="module"></script>
+</body>
+</html>

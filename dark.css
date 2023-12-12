@@ -1,0 +1,50 @@
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+:root {
+  --text-1: var(--gray-1);
+  --text-2: var(--gray-4);
+  --surface-1: var(--gray-9);
+  --surface-2: var(--gray-8);
+  --surface-3: var(--gray-7);
+  --surface-4: var(--gray-6);
+  --scrollthumb-color: var(--gray-6);
+  --shadow-strength: 10%;
+  --shadow-color: 220 40% 2%;
+  --background-color: rgb(31, 31, 31);
+  --accent-color: rgb(0 0 240 / 50%);
+  color-scheme: dark;
+}
+
+img {
+  filter: grayscale(50%);
+}
+
+.icon {
+  filter: invert(100%);
+}
+
+a {
+  color: rgb(214, 214, 214);
+}
+
+
+
+option:not(:checked),
+option:checked {
+  background-color: #333;
+  color: var(--gray-2);
+}

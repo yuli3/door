@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: http://door.ahoxy.com/sitemap.xml

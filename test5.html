@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .tabs {
+      display: flex;
+    }
+
+    .tab-button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab-button" onclick="showTab(0)">Tab 1</div>
+    <div class="tab-button" onclick="showTab(1)">Tab 2</div>
+    <div class="tab-button" onclick="showTab(2)">Tab 3</div>
+  </div>
+  
+  <div class="tab-content" id="tab1">Tab 1 Content</div>
+  <div class="tab-content" id="tab2">Tab 2 Content</div>
+  <div class="tab-content" id="tab3">Tab 3 Content</div>
+
+  <script>
+    function showTab(tabIndex) {
+      // 숨긴다.
+      let tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      // 선택된 탭을 보여준다.
+      let selectedTab = document.getElementById('tab' + (tabIndex + 1));
+      selectedTab.classList.add('active');
+    }
+  </script>
+</body>
+</html>

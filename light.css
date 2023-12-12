@@ -1,0 +1,33 @@
+:root {
+  color-scheme: light;
+  --background-color: rgb(248, 248, 248);
+  --text-color: rgb(15 15 15);
+  --shadow-color: rgb(15 15 15 / 50%);
+  --accent-color: rgb(240 0 0 / 50%);
+
+  --text-1: var(--gray-12);
+  --text-2: var(--gray-7);
+  --surface-1: var(--gray-0);
+  --surface-2: var(--gray-2);
+  --surface-3: var(--gray-3);
+  --surface-4: var(--gray-4);
+  -webkit-text-size-adjust: none;
+  accent-color: var(--brand, var(--link));
+  block-size: 100%;
+  caret-color: var(--brand, var(--link));
+  color: var(--text-1);
+}
+
+a {
+  color: var(--stone-10);
+
+  &:hover {
+    color: var(--stone-12);
+  }
+}
+
+option:not(:checked),
+option:checked {
+  background-color: rgb(248, 248, 248);
+  color: var(--stone-10);
+}
